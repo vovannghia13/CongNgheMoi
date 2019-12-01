@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Giới thiệu đề tài - Công nghệ mới</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{url_for('static', filename='vendor/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="{{url_for('static', filename='vendor/4.3.1/js/bootstrap.min.js')}}"></script>
+    <!--Online bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+            <a class="navbar-brand" href="/">Nhóm 8</a>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Presentation</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Demo">Demo</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="jumbotron bg-info text-white text-center">
+            <h1><u>Đề tài:</u> Vườn cây thông minh</h1>
+            <p>Vận dụng môn học Công nghệ mới trong Công nghệ Thông tin vào việc xây
+                dựng mô hình <strong>Vườn cây thông minh</strong>.
+            </p>
+        </div>
+        <div id="accordion">
+            <div class="card">
+                <div class="card-header">
+                    <a class="card-link" data-toggle="collapse" href="#collapseOne">
+                        <h4>1. Giới thiệu đề tài</h3>
+                    </a>
+                </div>
+                <div id="collapseOne" class="collapse" data-parent="#accordion">
+                    <div class="card-body">
+                        Nội dung giới thiệu đề tài
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <a class="collapsed card-link" data-toggle="collapse" href="#collapseTwo">
+                        <h4>2. Công nghệ sử dụng</h3>
+                    </a>
+                </div>
+                <div id="collapseTwo" class="collapse" data-parent="#accordion">
+                    <div class="card-body">
+                        Giới thiệu về các công nghệ
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <a class="collapsed card-link" data-toggle="collapse" href="#collapseThree">
+                        <h4>3. Phân chia công việc</h3>
+                    </a>
+                </div>
+                <div id="collapseThree" class="collapse" data-parent="#accordion">
+                    <div class="card-body">
+                        Bảng phân chia công việc
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <a class="collapsed card-link" data-toggle="collapse" href="#collapseFour">
+                        <h4>4. Kết quả và ý nghĩa của đề tài</h3>
+                    </a>
+                </div>
+                <div id="collapseFour" class="collapse" data-parent="#accordion">
+                    <div class="card-body">
+                        Chém gió phần này
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <a class="card-link" href="demo.html">
+                        <h4>5. Demo</h3>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -24,7 +24,7 @@
                     <a class="nav-link" href="/">Presentation</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/Demo">Demo</a>
+                    <a class="nav-link" href="/demo">Demo</a>
                 </li>
             </ul>
         </nav>
@@ -43,7 +43,50 @@
                 </div>
                 <div id="collapseOne" class="collapse" data-parent="#accordion">
                     <div class="card-body">
-                        Nội dung giới thiệu đề tài
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <p>Mô hình <strong> Vườn cây thông minh </strong> là sự mô phỏng một vườn cây thực tế,
+                                    được chăm sóc và giám sát thông qua
+                                    giao diện người dùng - Web GUI và Mobile Application, là sự vận dụng công nghệ IoT
+                                    trong việc chăm sóc
+                                    cây trồng.
+                                </p>
+                            </li>
+                            <li class="list-group-item">
+                                <p>Đề tài được thực hiện dựa trên mô hình <strong> Client - Server - IoT
+                                        Devices</strong>, trong đó:
+                                    <ul>
+                                        <li>
+                                            <p><strong>Client</strong>: cung cấp giao diện người dùng, người dùng có thể
+                                                giám sát, điều khiển các thiết bị của mình thông qua
+                                                kết nối internet tới máy chủ.</p>
+                                        </li>
+                                        <li>
+                                            <p><strong>Server</strong>: thường là các máy chủ cloud, là thành phần trung
+                                                gian giữa người dùng và các
+                                                thiết bị IoT, cung cấp dịch vụ web, tiếp nhận và xử lý yêu cầu của người
+                                                dùng, cầu nối giao tiếp của các thiết bị với người dùng
+                                                và giữa các thiết bị với nhau. Nói cách khác, máy chủ có nhiệm vụ xử lý
+                                                nghiệp vụ, logic.</p>
+                                        </li>
+                                        <li>
+                                            <p><strong>IoT Devices</strong>: Là các thiết bị, cảm biến có nhiệm vụ thu
+                                                thập dữ
+                                                liệu môi trường và gửi lên máy chủ, nhận lệnh điều khiển từ người dùng
+                                                (thông qua server).</p>
+                                        </li>
+                                    </ul>
+                                </p>
+                            </li>
+                            <li class="list-group-item">
+                                <p>Thông qua đề tài, ngoài các kiến thức được học trong môn <strong> Công nghệ mới trong
+                                        Công nghệ Thông tin</strong> như lập trình nhúng,
+                                    mỗi thành viên sẽ cần củng cố lại các kiến thức liên quan đến lập trình ứng dụng,
+                                    thiết kế và triển khai giải thuật,
+                                    mạng máy tính, hệ điều hành, khả năng làm việc nhóm và trách nhiệm của mỗi thành
+                                    viên</p>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -55,19 +98,161 @@
                 </div>
                 <div id="collapseTwo" class="collapse" data-parent="#accordion">
                     <div class="card-body">
-                        Giới thiệu về các công nghệ
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <h6>Arduino</h6>
+                                <ul>
+                                    <li>Arduino là một nền tảng mở, gồm mã nguồn và chi tiết thiết kế. </li>
+                                    <li>Ngôn ngữ lập trình của Arduino được thiết kế dựa trên nền tảng của C++ giúp tận
+                                        dụng được sức mạnh
+                                        của ngôn ngữ này.</li>
+                                    <li>Arduino phù hợp với giáo dục vì tính đơn giản của nó, mã nguồn có sẵn, thiết kế
+                                        phù hợp cho việc chỉnh sửa,
+                                        hoặc có thể sử dụng ngay mà không cần quan tâm đến các yếu tố về điện tử.</li>
+                                    <li>Bên cạnh những ưu điểm của mình, Arduino cũng tồn tại những nhược điểm như:
+                                        Không có tính chuyên dụng,
+                                        không phù hợp với môi trường bên ngoài thí nghiệm, khả năng chịu lỗi kém, không
+                                        đảm bảo được các yêu cầu về bảo mật.
+                                    </li>
+                                    <li>Có thể kết nối với nhiều loại cảm biến, bên cạnh đó có nhiều càm biến được xây
+                                        dựng trên nền tảng của Arduino.</li>
+                                </ul>
+                            </li>
+                            <li class="list-group-item">
+                                <h6>Raspberry Pi 3</h6>
+                                <ul>
+                                    <li>Được phát triển bởi Raspberry Pi Foundation – là tổ chức phi lợi nhuận với tiêu
+                                        chí xây dựng hệ thống mà nhiều người có thể sử dụng được trong những công việc
+                                        tùy biến khác nhau.</li>
+                                    <li>Là một máy tính mini, chạy hệ điều hành nhân Linux.</li>
+                                    <li>Được ứng dụng mạnh mẽ trong thực tế, thường được sử dụng như máy chủ cho các
+                                        thiết bị thông minh trong gia đình.</li>
+                                    <li>Khắc phụ được hầu hết các nhược điểm của nền tảng Arduino</li>
+                                </ul>
+                            </li>
+                            <li class="list-group-item">
+                                <h6>Các thành phần phục vụ đề tài</h6>
+                                <div class="table-responsive">
+                                    <table class="table table-striped">
+                                        <col width="50%">
+                                        <col width="50%">
+                                        <thead>
+                                            <tr class="text-center">
+                                                <th>Phần cứng / phần mềm</th>
+                                                <th>Mô tả</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <img src="{{url_for('static', filename='img/raspberry.jpg')}}"
+                                                        alt="Raspberry Pi 3" class="img-fluid">
+                                                </td>
+                                                <td>
+                                                    <ul>
+                                                        <li>Máy chủ web cục bộ</li>
+                                                        <li>Đóng vai trò là một gateway</li>
+                                                        <li>Máy chủ cục bộ của các thiết bị</li>
+                                                        <li>Có 40 GPIOs</li>
+                                                        <li>Sử dụng nguồn 5V - 2.5A</li>
+                                                    </ul>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <img src="{{url_for('static', filename='img/arduino.jpg')}}"
+                                                        alt="Arduino Uno R3" class="img-fluid">
+                                                </td>
+                                                <td>
+                                                    <ul>
+                                                        <li>Đọc và xử lý dữ liệu từ cảm biến</li>
+                                                        <li>Tiếp nhận lệnh từ phía người dùng thông qua server và
+                                                            gateway, thực hiện điều khiển thiết bị</li>
+                                                        <li>Tự động hóa hoạt động của các thiết bị, cảm biến dựa trên
+                                                            kịch bản được lập trình sẵn</li>
+                                                        <li>Sử dụng ngôn ngữ dựa trên C++</li>
+                                                        <li>Sử dụng nguồn 5VDC - 2.5A</li>
+                                                    </ul>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <img src="{{url_for('static', filename='img/pumper.jpg')}}"
+                                                        alt="Máy bơm" class="img-fluid">
+                                                </td>
+                                                <td>
+                                                    <ul>
+                                                        <li>Điều khiển lượng nước để tưới cây</li>
+                                                        <li>Sử dụng nguồn 3-5VDC</li>
+                                                    </ul>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <img src="{{url_for('static', filename='img/dth.jpg')}}"
+                                                        alt="Cảm biến nhiệt độ, độ ẩm" class="img-fluid">
+                                                </td>
+                                                <td>
+                                                    <ul>
+                                                        <li>Xác định các thông số về nhiệt độ, độ ẩm của môi trường</li>
+                                                    </ul>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <img src="{{url_for('static', filename='img/mq5.jpg')}}"
+                                                        alt="Cảm biến không khí" class="img-fluid">
+                                                </td>
+                                                <td>
+                                                    <ul>
+                                                        <li>Cảm biến về chất lượng không khí</li>
+                                                        <li>Xác định các thành phần của không khí</li>
+                                                    </ul>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <img src="{{url_for('static', filename='img/servo.jpg')}}"
+                                                        alt="Cảm biến không khí" class="img-fluid">
+                                                </td>
+                                                <td>
+                                                    <ul>
+                                                        <li>Tạo góc quay 180<sup>0</sup></li>
+                                                        <li>Sử dụng cho cánh cửa trong mô hình</li>
+                                                        <li>Sử dụng nguồn 3-5VDC</li>
+                                                    </ul>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
             <div class="card">
                 <div class="card-header">
                     <a class="collapsed card-link" data-toggle="collapse" href="#collapseThree">
-                        <h4>3. Phân chia công việc</h3>
+                        <h4>3. Quá trình thực hiện đề tài</h3>
                     </a>
                 </div>
                 <div id="collapseThree" class="collapse" data-parent="#accordion">
                     <div class="card-body">
-                        Bảng phân chia công việc
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <col width="20%">
+                                <col width="50%">
+                                <col width="30%">
+                                <thead>
+                                    <tr class="text-center">
+                                        <th>Thời gian</th>
+                                        <th>Nội dung công việc và người phụ trách</th>
+                                        <th>Kết quả</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>

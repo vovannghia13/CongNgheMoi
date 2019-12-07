@@ -5,18 +5,31 @@
     <title>Demo - Công nghệ mới</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="{{url_for('static', filename='vendor/css/bootstrap.min.css')}}">
-    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+
+    <!--Cloud CDN-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+    <!--Socket IO-->
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
     <script src="{{url_for('static', filename='vendor/4.3.1/js/bootstrap.min.js')}}"></script>
+
+    <!--Update <script src="{{url_for('static', filename='js/application.js')}}"></script> data-->
+
+    <!--Other JS-->
+
     <!--Online bootstrap-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <!--Chart-->
+    <script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+    <script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
 </head>
 
 <body>
-    <div class="container-fluid">
+    <div class="container-fluid bg-dark">
         <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
             <a class="navbar-brand" href="/">Nhóm 8</a>
             <ul class="navbar-nav">
@@ -28,7 +41,143 @@
                 </li>
             </ul>
         </nav>
+        <div id="Container">
+            <div class="row">
+                <div class="col-lg-6 col-sm-12">
+                    <img style="height: 50vh;" id="tube" src="../static/img/TubeOff.png" alt="Tube Off"
+                        class="image-fluid d-block mx-auto" onclick="changeLightStatus()">
+                </div>
+                <div class="col-lg-6 col-sm-12">
+                    <div id="chartContainer" style="height: 50vh; width: 100%;">
+                        <script>
+                            var chart = new CanvasJS.Chart("chartContainer", {
+                                animationEnabled: true,
+                                title: {
+                                    text: "Temperature"
+                                },
+                                axisX: {
+                                    valueFormatString: "hh:mm:ss"
+                                },
+                                axisY: {
+                                    title: "Temperature (in °C)",
+                                    includeZero: false,
+                                    suffix: " °C"
+                                },
+                                legend: {
+                                    cursor: "pointer",
+                                    fontSize: 16,
+                                    itemclick: toggleDataSeries
+                                },
+                                toolTip: {
+                                    shared: true
+                                },
+                                data: [{
+                                    name: "Garden",
+                                    type: "spline",
+                                    yValueFormatString: "#0.## °C",
+                                    showInLegend: true,
+                                    dataPoints: []
+                                }]
+                            });
+                            chart.render();
+
+                            function toggleDataSeries(e) {
+                                if (typeof (e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+                                    e.dataSeries.visible = false;
+                                }
+                                else {
+                                    e.dataSeries.visible = true;
+                                }
+                                chart.render();
+                            }
+                        </script>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 col-sm-12 px-6">
+                    <img id="door" style="height: 50vh" src="../static/img/doorClose.png" alt="Door"
+                        class="image-fluid d-block mx-auto" onclick="changeDoorStatus()">
+                </div>
+                <div class="col-lg-6 col-sm-12">
+                    <img id="waterpumps" style="height: 50vh; width: 100%;" src="../static/img/WaterPumpsOff.PNG"
+                        alt="Water Pumps" class="image-fluid d-block mx-auto" onclick="changeWaterPumpsStatus()">
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center bg-dark text-white py-4" style="margin-bottom:0">
+            <p>&copy; luuquangduc7cd@gmail.com</p>
+        </div>
     </div>
 </body>
+<script>
+    // Turn light on or off
+    var light = document.getElementById("tube");
+    var Container = document.getElementById("Container");
+    var lightStatus = 0;
+    function changeLightStatus() {
+        lightStatus++;
+        if (lightStatus % 2 == 0) {
+            light.src = "../static/img/TubeOff.png";
+            Container.style.background = "#343a40";
+            console.log("Light is OFF");
+        }
+        else {
+            light.src = "../static/img/TubeOn.png";
+            Container.style.background = "#fff";
+            console.log("Light is ON");
+        }
+        console
+    }
+
+    // Load Data to chart
+    $("#chartContainer").click(function () {
+
+        var length = chart.options.data[0].dataPoints.length;
+
+        //connect to the socket server.
+        var socket = io.connect('http://' + document.domain + ':' + location.port + '/temperature');
+        var numbers_received = [];
+
+        //receive details from server
+        socket.on('newnumber', function (msg) {
+            //console.log("Received number" + msg.number);
+            chart.options.data[0].dataPoints.push({ x: new Date(), y: msg.number });
+            chart.render();
+        });
+    });
+
+    // Control door
+    var door = document.getElementById("door");
+    var doorStatus = 0;
+    function changeDoorStatus() {
+        doorStatus++;
+        if (doorStatus % 2 == 0) {
+            door.src = "../static/img/doorClose.PNG";
+            console.log("The door is close");
+        }
+        else {
+            door.src = "../static/img/doorOpen.png";
+            console.log("The door is open");
+        }
+    }
+
+    // Turn water pumps on or off
+    var waterpumps = document.getElementById("waterpumps");
+    var waterpumpsStatus = 0;
+    function changeWaterPumpsStatus() {
+        waterpumpsStatus++;
+        if (waterpumpsStatus % 2 == 0) {
+            waterpumps.src = "../static/img/WaterPumpsOff.PNG";
+            console.log("Water pumps is off");
+        }
+        else {
+            waterpumps.src = "../static/img/WaterPumpsOn.gif";
+            console.log("Watering");
+        }
+    }
+
+</script>
 
 </html>

@@ -30,7 +30,7 @@
 
 <body>
     <div class="container-fluid bg-dark">
-        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <nav id="nav" class="navbar navbar-expand-sm bg-dark navbar-dark">
             <a class="navbar-brand" href="/">Nhóm 8</a>
             <ul class="navbar-nav">
                 <li class="nav-item">
@@ -71,13 +71,22 @@
                                 toolTip: {
                                     shared: true
                                 },
-                                data: [{
-                                    name: "Garden",
-                                    type: "spline",
-                                    yValueFormatString: "#0.## °C",
-                                    showInLegend: true,
-                                    dataPoints: []
-                                }]
+                                data: [
+                                    {
+                                        name: "Temperature",
+                                        type: "spline",
+                                        yValueFormatString: "#0.## °C",
+                                        showInLegend: true,
+                                        dataPoints: []
+                                    },
+                                    {
+                                        name: "Humidity",
+                                        type: "spline",
+                                        yValueFormatString: "#0.##",
+                                        showInLegend: true,
+                                        dataPoints: []
+                                    }
+                            ]
                             });
                             chart.render();
 
@@ -104,10 +113,6 @@
                         alt="Water Pumps" class="image-fluid d-block mx-auto" onclick="changeWaterPumpsStatus()">
                 </div>
             </div>
-        </div>
-
-        <div class="text-center bg-dark text-white py-4" style="margin-bottom:0">
-            <p>&copy; luuquangduc7cd@gmail.com</p>
         </div>
     </div>
 </body>
@@ -143,9 +148,9 @@
         var numbers_received = [];
 
         //receive details from server
-        socket.on('newnumber', function (msg) {
-            //console.log("Received number" + msg.number);
-            chart.options.data[0].dataPoints.push({ x: new Date(), y: msg.number });
+        socket.on('newdata', function (msg) {
+            chart.options.data[0].dataPoints.push({ x: new Date(), y: msg.temperature});
+            chart.options.data[1].dataPoints.push({ x: new Date(), y: msg.humidity});
             chart.render();
         });
     });

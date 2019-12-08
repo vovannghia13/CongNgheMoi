@@ -20,9 +20,11 @@ thread_stop_event = Event()
 def randomNumberGenerator():
     print("Making random numbers")
     while not thread_stop_event.isSet():
-        number = round(random()*10, 3)
-        print(number)
-        socketio.emit('newnumber', {'number': number}, namespace='/temperature')
+        temperature = round(random()*10, 3)
+        humidity = round(random()*100, 3)
+        print(temperature)
+        print(humidity)
+        socketio.emit('newdata', {'temperature': temperature, 'humidity': humidity}, namespace='/temperature')
         socketio.sleep(2)
 
 

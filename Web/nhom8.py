@@ -9,4 +9,4 @@ CLOSE = 0b00000001
 OPEN = 0b00000010
 
 def n8process(device, status):
-    return int(device|status)
+    return (device|status)

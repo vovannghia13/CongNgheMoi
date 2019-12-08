@@ -3,6 +3,7 @@ from flask import Flask, render_template, url_for, copy_current_request_context
 from random import random
 from time import sleep
 from threading import Thread, Event
+import nhom8 as n8
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret!'
@@ -33,6 +34,30 @@ def home():
 @app.route("/demo")
 def demo():
     return render_template('demo.html')
+
+@app.route("/led/<int:status>", methods=['GET'])
+def processLed(status):
+    if status == 1:
+        print(n8.n8process(n8.ID_LED, n8.OPEN))
+    if status == 0:
+        print(n8.n8process(n8.ID_LED, n8.CLOSE))
+    return ('', 200)
+
+@app.route("/pump/<int:status>", methods=['GET'])
+def processPump(status):
+    if status == 1:
+        print(n8.n8process(n8.ID_PUMP, n8.OPEN))
+    if status == 0:
+        print(n8.n8process(n8.ID_PUMP, n8.CLOSE))
+    return ('', 200)
+
+@app.route("/door/<int:status>", methods=['GET'])
+def processDoor(status):
+    if status == 1:
+        print(n8.n8process(n8.ID_DOOR, n8.OPEN))
+    if status == 0:
+        print(n8.n8process(n8.ID_DOOR, n8.CLOSE))
+    return ('', 200)
 
 
 @socketio.on('connect', namespace='/temperature')

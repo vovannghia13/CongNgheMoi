@@ -1,0 +1,12 @@
+ID_MASK = 0b11110000
+STATUS_MASKMASK = 0b00001111
+
+ID_LED = 0b00010000
+ID_DOOR = 0b000100000
+ID_PUMP = 0b00110000
+
+CLOSE = 0b00000001
+OPEN = 0b00000010
+
+def n8process(device, status):
+    return int(device|status)

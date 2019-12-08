@@ -121,11 +121,13 @@
         if (lightStatus % 2 == 0) {
             light.src = "../static/img/TubeOff.png";
             Container.style.background = "#343a40";
+            $.get('/led/' + 0);
             console.log("Light is OFF");
         }
         else {
             light.src = "../static/img/TubeOn.png";
             Container.style.background = "#fff";
+            $.get('/led/' + 1);
             console.log("Light is ON");
         }
         console
@@ -155,10 +157,12 @@
         doorStatus++;
         if (doorStatus % 2 == 0) {
             door.src = "../static/img/doorClose.PNG";
+            $.get('/door/' + 0);
             console.log("The door is close");
         }
         else {
             door.src = "../static/img/doorOpen.png";
+            $.get('/door/' + 1);
             console.log("The door is open");
         }
     }
@@ -170,10 +174,12 @@
         waterpumpsStatus++;
         if (waterpumpsStatus % 2 == 0) {
             waterpumps.src = "../static/img/WaterPumpsOff.PNG";
+            $.get('/pump/' + 0);
             console.log("Water pumps is off");
         }
         else {
             waterpumps.src = "../static/img/WaterPumpsOn.gif";
+            $.get('/pump/' + 1);
             console.log("Watering");
         }
     }

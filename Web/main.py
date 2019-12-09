@@ -3,7 +3,7 @@ from flask import Flask, render_template, url_for, copy_current_request_context
 from random import random
 from time import sleep
 from threading import Thread, Event
-import nhom8 as n8
+import congnghemoi as n8
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret!'

@@ -63,7 +63,7 @@ def processLed(status):
     if status == 1:
         print("The light is turned on with command: " + str(n8.n8process(n8.ID_LED, n8.OPEN)))
     if status == 0:
-        print("The light is turned off with command: " str(n8.n8process(n8.ID_LED, n8.CLOSE)))
+        print("The light is turned off with command: " + str(n8.n8process(n8.ID_LED, n8.CLOSE)))
     return ('', 200)
 
 

@@ -37,12 +37,16 @@ thread_stop_event = Event()
             humidity = round(random()*100, 3)
         socketio.emit('newdata', {'temperature': temperature, 'humidity': humidity}, namespace='/temperature')
         socketio.sleep(1)"""
+
+
 def getData():
     while True:
         temperature = 26 + random() % 4
         humidity = 50 + random() % 20
-        socketio.emit('newdata', {'temperature': temperature, 'humidity': humidity}, namespace='/temperature')
+        socketio.emit('newdata', {'temperature': temperature,
+                                  'humidity': humidity}, namespace='/temperature')
         socketio.sleep(1)
+
 
 @app.route("/")
 def home():
@@ -53,6 +57,7 @@ def home():
 def demo():
     return render_template('demo.html')
 
+
 @app.route("/led/<int:status>", methods=['GET'])
 def processLed(status):
     if status == 1:
@@ -61,6 +66,7 @@ def processLed(status):
         print(n8.n8process(n8.ID_LED, n8.CLOSE))
     return ('', 200)
 
+
 @app.route("/pump/<int:status>", methods=['GET'])
 def processPump(status):
     if status == 1:
@@ -68,6 +74,7 @@ def processPump(status):
     if status == 0:
         print(n8.n8process(n8.ID_PUMP, n8.CLOSE))
     return ('', 200)
+
 
 @app.route("/door/<int:status>", methods=['GET'])
 def processDoor(status):
@@ -96,4 +103,4 @@ def client_disconnect():
 
 
 if __name__ == "__main__":
-    app.run(host = '0.0.0.0', port = 5000, debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=True)

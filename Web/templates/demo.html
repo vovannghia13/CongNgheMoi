@@ -161,7 +161,7 @@
     function changeDoorStatus() {
         doorStatus++;
         if (doorStatus % 2 == 0) {
-            door.src = "../static/img/doorClose.PNG";
+            door.src = "../static/img/doorClose.png";
             $.get('/door/' + 0);
             console.log("The door is close");
         }
@@ -178,7 +178,7 @@
     function changeWaterPumpsStatus() {
         waterpumpsStatus++;
         if (waterpumpsStatus % 2 == 0) {
-            waterpumps.src = "../static/img/WaterPumpsOff.PNG";
+            waterpumps.src = "../static/img/WaterPumpsOff.png";
             $.get('/pump/' + 0);
             console.log("Water pumps is off");
         }

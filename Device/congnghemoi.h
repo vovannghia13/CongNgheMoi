@@ -1,6 +1,10 @@
 #ifndef CONGNGHEMOI_H
 #define CONGNGHEMOI_H
 
+#include <DHT.h>
+#include <DHT_U.h>
+#include <Servo.h>
+
 #define ID_MASK 0b11110000
 #define STATUS_MASK 0b00001111
 
@@ -13,14 +17,17 @@
 
 #define LED 13
 #define PUMP 12
-#define DOOR 11
-#define SENSOR 6
+#define DOOR 9
+#define DHTPIN 2
+#define DHTTYPE DHT21
+
+
 
 byte getID(byte b);
 byte getStatus(byte b);
 int getPin(byte b);
 int getInstruction(byte b);
-void changeDeviceStatus(byte b, int pin);
+void changeDeviceStatus(byte b);
 
 byte getID(byte b)
 {
@@ -36,8 +43,6 @@ int getPin(byte b)
     byte id = getID(b);
     if (id == ID_LED)
         return LED;
-    if (id == ID_DOOR)
-        return DOOR;
     if (id == ID_PUMP)
         return PUMP;
     return -1;
@@ -57,7 +62,7 @@ void changeDeviceStatus(byte b)
 {
     int pin = getPin(b);
     int status = getInstruction(b);
-    digitalWrite(pin, status);
+    
 }
 
 #endif

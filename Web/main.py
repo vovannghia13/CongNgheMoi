@@ -79,7 +79,7 @@ def processPump(status):
 @app.route("/door/<int:status>", methods=['GET'])
 def processDoor(status):
     if status == 1:
-        print(n8.n8process(n8.ID_DOOR, n8.OPEN))
+        print("The door is opened with command: " + str(n8.n8process(n8.ID_DOOR, n8.OPEN)))
     if status == 0:
         print(n8.n8process(n8.ID_DOOR, n8.CLOSE))
     return ('', 200)

@@ -45,6 +45,7 @@ def getData():
         humidity = 50 + random() % 20
         socketio.emit('newdata', {'temperature': temperature,
                                   'humidity': humidity}, namespace='/temperature')
+        print("Temperature = " + str(temperature) + "; Humidity: " + str(humidity))
         socketio.sleep(1)
 
 
@@ -103,4 +104,4 @@ def client_disconnect():
 
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=False)

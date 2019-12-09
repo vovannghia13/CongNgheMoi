@@ -61,18 +61,18 @@ def demo():
 @app.route("/led/<int:status>", methods=['GET'])
 def processLed(status):
     if status == 1:
-        print(n8.n8process(n8.ID_LED, n8.OPEN))
+        print("The light is turned on with command: " + str(n8.n8process(n8.ID_LED, n8.OPEN)))
     if status == 0:
-        print(n8.n8process(n8.ID_LED, n8.CLOSE))
+        print("The light is turned off with command: " str(n8.n8process(n8.ID_LED, n8.CLOSE)))
     return ('', 200)
 
 
 @app.route("/pump/<int:status>", methods=['GET'])
 def processPump(status):
     if status == 1:
-        print(n8.n8process(n8.ID_PUMP, n8.OPEN))
+        print("Watering with command: " + str(n8.n8process(n8.ID_PUMP, n8.OPEN)))
     if status == 0:
-        print(n8.n8process(n8.ID_PUMP, n8.CLOSE))
+        print("Stop watering with command: " + str(n8.n8process(n8.ID_PUMP, n8.CLOSE)))
     return ('', 200)
 
 
@@ -81,7 +81,7 @@ def processDoor(status):
     if status == 1:
         print("The door is opened with command: " + str(n8.n8process(n8.ID_DOOR, n8.OPEN)))
     if status == 0:
-        print(n8.n8process(n8.ID_DOOR, n8.CLOSE))
+        print("The door is closed with command: " + str(n8.n8process(n8.ID_DOOR, n8.CLOSE)))
     return ('', 200)
 
 
@@ -91,7 +91,7 @@ def client_connect():
     global thread
     print('Client connected')
 
-    # Start the random number generator thread only if the thread has not been started before.
+    # Start the getData() thread only if the thread has not been started before.
     if not thread.isAlive():
         print("Starting Thread")
         thread = socketio.start_background_task(getData)
